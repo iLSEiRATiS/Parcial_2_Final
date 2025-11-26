@@ -16,25 +16,21 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="nav">
-                <ul class="navbar-nav me-auto">
+            <div class="collapse navbar-collapse justify-content-end" id="nav">
+                <ul class="navbar-nav align-items-center">
                     {% if user.is_authenticated %}
                     <li class="nav-item"><a class="nav-link" href="/dashboard/">Dashboard</a></li>
                     <li class="nav-item"><a class="nav-link" href="/alumnos/">Alumnos</a></li>
                     <li class="nav-item"><a class="nav-link" href="/scraper/">Scraper</a></li>
                     <li class="nav-item"><a class="nav-link" href="/apuntes/">Apuntes</a></li>
                     <li class="nav-item"><a class="nav-link" href="/calendario/">Calendario</a></li>
+                    <li class="nav-item"><span class="navbar-text px-2">Hola, {{ user.username }}</span></li>
+                    <li class="nav-item"><a class="btn btn-outline-light btn-pill btn-sm px-3" href="/logout/">Salir</a></li>
+                    {% else %}
+                    <li class="nav-item"><a class="btn btn-outline-light btn-pill btn-sm px-3 me-2" href="/login/">Ingresar</a></li>
+                    <li class="nav-item"><a class="btn btn-light btn-pill btn-sm px-3" href="/registro/">Registrate</a></li>
                     {% endif %}
                 </ul>
-                <div class="d-flex align-items-center gap-2">
-                    {% if user.is_authenticated %}
-                        <span class="navbar-text">Hola, {{ user.username }}</span>
-                        <a class="btn btn-outline-light btn-pill btn-sm px-3" href="/logout/">Salir</a>
-                    {% else %}
-                        <a class="btn btn-outline-light btn-pill btn-sm px-3" href="/login/">Ingresar</a>
-                        <a class="btn btn-light btn-pill btn-sm px-3" href="/registro/">Registrate</a>
-                    {% endif %}
-                </div>
             </div>
         </div>
     </nav>
