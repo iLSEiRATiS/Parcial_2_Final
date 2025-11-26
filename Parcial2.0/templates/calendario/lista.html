@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Calendario{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between mb-3">
+    <h2>Eventos y fechas clave</h2>
+    <a class="btn btn-primary btn-pill" href="/calendario/crear/">Nuevo evento</a>
+</div>
+<div class="row">
+    {% for evento in eventos %}
+    <div class="col-md-4">
+        <div class="card mb-3">
+            <div class="card-body">
+                <span class="badge bg-secondary text-uppercase">{{ evento.categoria }}</span>
+                <h5 class="card-title mt-2">{{ evento.titulo }}</h5>
+                <p class="card-text text-muted mb-1">{{ evento.fecha }}</p>
+                <p class="card-text">{{ evento.descripcion|default:"Sin descripción" }}</p>
+                <div class="d-flex gap-2">
+                    <a class="btn btn-outline-secondary btn-sm" href="/calendario/{{ evento.id }}/editar/">Editar</a>
+                    <a class="btn btn-outline-danger btn-sm" href="/calendario/{{ evento.id }}/eliminar/">Eliminar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <p>No hay eventos cargados.</p>
+    {% endfor %}
+</div>
+{% endblock %}

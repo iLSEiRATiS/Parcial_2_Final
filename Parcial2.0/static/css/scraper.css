@@ -1,0 +1,10 @@
+ .scraper-hero {
+    background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(6,182,212,0.12));
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.pill-input {
+    border-radius: 999px;
+    padding-left: 1rem;
+}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Apunte{% endblock %}
+{% block content %}
+<div class="card p-4 shadow-sm">
+    <h3 class="mb-3">{{ apunte.titulo }}</h3>
+    <p>{{ apunte.contenido }}</p>
+    <p class="text-muted">Creado: {{ apunte.creado }}</p>
+    <div class="d-flex gap-2">
+        <a class="btn btn-outline-secondary btn-pill" href="/apuntes/{{ apunte.id }}/editar/">Editar</a>
+        <a class="btn btn-link" href="/apuntes/">Volver</a>
+    </div>
+</div>
+{% endblock %}

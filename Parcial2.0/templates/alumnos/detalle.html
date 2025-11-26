@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Detalle alumno{% endblock %}
+{% block content %}
+<div class="card p-4 shadow-sm">
+    <h3 class="mb-3">{{ alumno.nombre }}</h3>
+    <p class="mb-1"><strong>Carrera:</strong> {{ alumno.carrera }}</p>
+    <p class="mb-1"><strong>Legajo:</strong> {{ alumno.legajo }}</p>
+    <p class="text-muted">Creado: {{ alumno.creado }}</p>
+    <div class="d-flex gap-2 mt-3">
+        <a class="btn btn-primary btn-pill" href="/alumnos/{{ alumno.id }}/enviar_pdf/">Enviar PDF</a>
+        <a class="btn btn-outline-secondary btn-pill" href="/alumnos/{{ alumno.id }}/editar/">Editar</a>
+        <a class="btn btn-outline-danger btn-pill" href="/alumnos/{{ alumno.id }}/eliminar/">Borrar</a>
+        <a class="btn btn-link" href="/alumnos/">Volver</a>
+    </div>
+</div>
+{% endblock %}

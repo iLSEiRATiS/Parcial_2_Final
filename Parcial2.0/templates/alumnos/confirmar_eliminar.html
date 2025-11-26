@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Eliminar alumno{% endblock %}
+{% block content %}
+<div class="card p-4 shadow-sm">
+    <h4>¿Eliminar alumno?</h4>
+    <p>Se eliminará <strong>{{ alumno.nombre }}</strong>.</p>
+    <form method="post">
+        {% csrf_token %}
+        <button class="btn btn-danger btn-pill" type="submit">Sí, eliminar</button>
+        <a class="btn btn-link" href="/alumnos/">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

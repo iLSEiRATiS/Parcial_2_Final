@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Inicio{% endblock %}
+{% block content %}
+<div class="section-hero mb-4">
+    <h1 class="mb-2">Bienvenido, {{ user.username }}</h1>
+    <p class="mb-0 text-muted">Accede rápido a tus alumnos, dashboard y herramientas.</p>
+</div>
+<div class="row g-3">
+    <div class="col-md-4">
+        <div class="card p-3 h-100">
+            <h5>Dashboard</h5>
+            <p class="text-muted">Resumen y accesos rápidos.</p>
+            <a class="btn btn-primary btn-pill" href="/dashboard/">Ir al Dashboard</a>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card p-3 h-100">
+            <h5>Alumnos</h5>
+            <p class="text-muted">Gestiona tu listado, edita o envía PDF.</p>
+            <a class="btn btn-outline-primary btn-pill" href="/alumnos/">Ver alumnos</a>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card p-3 h-100">
+            <h5>Scraper</h5>
+            <p class="text-muted">Obtené resúmenes rápidos para estudiar.</p>
+            <a class="btn btn-outline-secondary btn-pill" href="/scraper/">Ir al scraper</a>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card p-3 h-100">
+            <h5>Apuntes</h5>
+            <p class="text-muted">Guarda ideas y recordatorios rápidos.</p>
+            <a class="btn btn-outline-success btn-pill" href="/apuntes/">Ver apuntes</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

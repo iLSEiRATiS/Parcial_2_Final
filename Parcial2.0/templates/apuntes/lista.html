@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Apuntes{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between mb-3">
+    <h2>Apuntes</h2>
+    <a class="btn btn-primary btn-pill" href="/apuntes/crear/">Nuevo apunte</a>
+</div>
+<div class="row">
+    {% for apunte in apuntes %}
+    <div class="col-md-4">
+        <div class="card mb-3 h-100">
+            <div class="card-body">
+                <h5 class="card-title">{{ apunte.titulo }}</h5>
+                <p class="card-text text-muted">{{ apunte.contenido|truncatechars:120 }}</p>
+                <small class="text-muted">{{ apunte.creado }}</small>
+                <div class="mt-2 d-flex gap-2">
+                    <a class="btn btn-outline-primary btn-sm" href="/apuntes/{{ apunte.id }}/">Ver</a>
+                    <a class="btn btn-outline-secondary btn-sm" href="/apuntes/{{ apunte.id }}/editar/">Editar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <p>No hay apuntes todavía.</p>
+    {% endfor %}
+    </div>
+{% endblock %}

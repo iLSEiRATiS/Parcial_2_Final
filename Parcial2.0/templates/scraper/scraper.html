@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Scraper{% endblock %}
+{% block content %}
+<div class="scraper-hero mb-4 shadow-sm">
+    <h3 class="mb-2">Scraper educativo</h3>
+    <p class="mb-3 text-muted">Busca en Wikipedia y muestra resúmenes rápidos para estudiar.</p>
+    <form method="get" class="row g-2 align-items-center">
+        <div class="col-md-8">
+            <input type="text" class="form-control pill-input" name="q" value="{{ palabra }}" placeholder="Palabra clave">
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-primary btn-pill w-100" type="submit">Buscar y enviar</button>
+        </div>
+    </form>
+</div>
+{% if resultados %}
+<div class="card p-4 shadow-sm">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h5 class="mb-0">Resultados</h5>
+        <span class="badge bg-primary">{{ resultados|length }} hallazgos</span>
+    </div>
+    <table class="table">
+        <thead><tr><th>Snippet</th></tr></thead>
+        <tbody>
+            {% for r in resultados %}
+            <tr><td>{{ r }}</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+{% endblock %}
