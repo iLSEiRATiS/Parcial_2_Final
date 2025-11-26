@@ -1,3 +1,8 @@
+# Ignorar todo salvo el proyecto Parcial2.0 y este archivo
+/*
+!/.gitignore
+!/Parcial2.0/
+
 .venv/
 __pycache__/
 db.sqlite3
