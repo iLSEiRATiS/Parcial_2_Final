@@ -51,10 +51,11 @@ footer {
 .nav-link:hover { opacity: 1; color: #fff !important; }
 
 .card {
-    border: 1px solid rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
     border-radius: 16px;
-    background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+    background: rgba(12, 17, 32, 0.8);
     box-shadow: 0 16px 36px rgba(0,0,0,0.25);
+    color: #eef3ff;
 }
 
 .btn-pill {
@@ -97,7 +98,7 @@ footer {
     box-shadow: 0 12px 26px rgba(12,194,232,0.25);
 }
 
-.table { margin-bottom: 0; color: #e8edf7; }
+.table { margin-bottom: 0; color: #eef3ff; }
 .table thead th {
     background: linear-gradient(120deg, rgba(255,107,214,0.15), rgba(12,194,232,0.12));
     border-bottom: none;
@@ -113,11 +114,11 @@ footer {
 }
 
 .section-hero {
-    background: linear-gradient(135deg, rgba(255,107,214,0.12), rgba(12,194,232,0.14));
+    background: linear-gradient(135deg, rgba(255,107,214,0.16), rgba(12,194,232,0.18));
     border-radius: 20px;
     padding: 32px;
     box-shadow: 0 22px 40px rgba(0,0,0,0.2);
-    color: #e8edf7;
+    color: #eef3ff;
 }
 
 .badge.bg-secondary {
@@ -128,9 +129,22 @@ footer {
 .form-control, .form-select, textarea {
     border-radius: 10px;
     border-color: rgba(255,255,255,0.2);
-    box-shadow: inset 0 1px 2px rgba(0,0,0,0.03);
-    background-color: rgba(255,255,255,0.04);
-    color: #e8edf7;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.08);
+    background-color: rgba(15,20,38,0.6);
+    color: #eef3ff;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: rgba(238,243,255,0.7);
+}
+
+label, h1, h2, h3, h4, h5 {
+    color: #f5f7ff;
+}
+
+p, li, .navbar-text, .card-text, .form-text {
+    color: #d5dbeb;
 }
 
 a {
