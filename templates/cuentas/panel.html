@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block title %}Panel{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <div class="bg-white p-4 rounded shadow-sm mb-3">
+            <h2 class="mb-3">Panel privado</h2>
+            <p class="mb-0">Resumen rapido de tus apps.</p>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Tareas FBV</h5>
+                        <p class="display-6">{{ stats.tareas_fbv }}</p>
+                        <a class="btn btn-primary btn-sm" href="/tareas/">Ver</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Tareas CBV</h5>
+                        <p class="display-6">{{ stats.tareas_cbv }}</p>
+                        <a class="btn btn-primary btn-sm" href="/tareas_cbv/">Ver</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Reportes</h5>
+                        <p class="display-6">{{ stats.reportes }}</p>
+                        <a class="btn btn-primary btn-sm" href="/informes/">Informes</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Fotos</h5>
+                        <p class="display-6">{{ stats.fotos }}</p>
+                        <a class="btn btn-primary btn-sm" href="/galeria/">Galeria</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Libros API</h5>
+                        <p class="display-6">{{ stats.libros }}</p>
+                        <a class="btn btn-primary btn-sm" href="/swagger/">Swagger</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Carrito</h5>
+                        <p class="display-6">{{ carrito_items }}</p>
+                        <a class="btn btn-primary btn-sm" href="/carrito/">Ver carrito</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Productos</h5>
+                <p class="mb-1">Total: {{ stats.productos }}</p>
+                <a class="btn btn-success btn-sm" href="/productos/crear/">Subir producto</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Accesos rapidos</h5>
+                <ul class="list-unstyled mb-0">
+                    <li><a href="/informes/">Crear informe PDF</a></li>
+                    <li><a href="/scraper/buscar/">Scraper</a></li>
+                    <li><a href="/estadisticas/dashboard/">Dashboard</a></li>
+                    <li><a href="/contacto/">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

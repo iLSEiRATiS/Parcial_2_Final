@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Detalle Tarea CBV{% endblock %}
+{% block content %}
+<div class="bg-white p-4 rounded shadow-sm">
+    <h3>{{ tarea.titulo }}</h3>
+    <p>{{ tarea.descripcion }}</p>
+    <p class="text-muted">Creada: {{ tarea.fecha_creacion }}</p>
+    <a class="btn btn-primary" href="/tareas_cbv/{{ tarea.id }}/editar/">Editar</a>
+    <a class="btn btn-secondary" href="/tareas_cbv/">Volver</a>
+</div>
+{% endblock %}

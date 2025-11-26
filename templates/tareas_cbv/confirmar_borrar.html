@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Borrar Tarea CBV{% endblock %}
+{% block content %}
+<div class="bg-white p-4 rounded shadow-sm">
+    <p>¿Eliminar la tarea "{{ object.titulo }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button class="btn btn-danger" type="submit">Borrar</button>
+        <a class="btn btn-secondary" href="/tareas_cbv/">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

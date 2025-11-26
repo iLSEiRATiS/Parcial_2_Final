@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Galería{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-md-4">
+        <h3>Subir foto</h3>
+        <form method="post" enctype="multipart/form-data" class="bg-white p-3 rounded shadow-sm">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-primary" type="submit">Subir</button>
+        </form>
+    </div>
+    <div class="col-md-8">
+        <h3>Galería</h3>
+        <div class="row">
+            {% for foto in fotos %}
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img src="{{ foto.imagen.url }}" class="card-img-top" alt="{{ foto.titulo }}">
+                    <div class="card-body">
+                        <p class="card-text">{{ foto.titulo }}</p>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <p>No hay fotos aún.</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

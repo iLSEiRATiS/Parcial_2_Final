@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<h2 class="mb-3">Dashboard de visitas</h2>
+<div class="row mb-3">
+    <div class="col-md-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <h6>Total visitas</h6>
+                <p class="display-6">{{ total_visitas }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div class="card">
+            <div class="card-body">
+                <canvas id="visitasChart" height="80"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 mb-3">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="mb-3">Paginas mas visitadas</h6>
+                <canvas id="paginasChart"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 mb-3">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="mb-3">Visitas por hora (hoy)</h6>
+                <canvas id="horaChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const visitasCtx = document.getElementById('visitasChart');
+    new Chart(visitasCtx, {
+        type: 'line',
+        data: {
+            labels: {{ visitas_labels|safe }},
+            datasets: [{
+                label: 'Visitas por dia',
+                data: {{ visitas_data|safe }},
+                borderColor: '#0d6efd',
+                backgroundColor: 'rgba(13,110,253,0.1)',
+                fill: true,
+                tension: 0.3
+            }]
+        }
+    });
+
+    const paginasCtx = document.getElementById('paginasChart');
+    new Chart(paginasCtx, {
+        type: 'bar',
+        data: {
+            labels: {{ paginas_labels|safe }},
+            datasets: [{
+                label: 'Paginas',
+                data: {{ paginas_data|safe }},
+                backgroundColor: '#20c997'
+            }]
+        }
+    });
+
+    const horaCtx = document.getElementById('horaChart');
+    new Chart(horaCtx, {
+        type: 'doughnut',
+        data: {
+            labels: {{ hora_labels|safe }},
+            datasets: [{
+                label: 'Visitas por hora',
+                data: {{ hora_data|safe }},
+                backgroundColor: ['#0d6efd','#6f42c1','#d63384','#fd7e14','#20c997','#dc3545','#198754','#6c757d','#ffc107','#0dcaf0','#495057','#343a40']
+            }]
+        }
+    });
+</script>
+{% endblock %}
